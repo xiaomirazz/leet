@@ -1,0 +1,46 @@
+Given a linked list, determine if it has a cycle in it.
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        ListNode *one,*two;
+        bool flag = false;
+        
+        if(head == NULL)
+        {
+            return flag;
+        }
+        
+        one = head;
+        two = head;
+        
+        while(two->next!= NULL)
+        {
+            one = one->next;
+            two = two->next;
+            if(two->next == NULL)
+            {
+                break;
+            }
+            else
+            {
+                two = two->next;
+            }
+            if(one == two)
+            {
+                flag = true;
+                break;
+            }
+        }
+        
+        return flag;
+    }
+};
