@@ -1,0 +1,19 @@
+Given a binary tree, return the inorder traversal of its nodes' values.
+
+void add_vec(TreeNode *root, vector<int> &vec)
+{
+    if(root != NULL)
+    {
+        if(root->left != NULL)add_vec(root->left,vec);
+        vec.push_back(root->val);
+        if(root->right != NULL)add_vec(root->right,vec);
+    }
+}
+class Solution {
+public:
+    vector<int> inorderTraversal(TreeNode *root) {
+        vector<int> vec;
+        add_vec(root,vec);
+        return vec;
+    }
+};
